@@ -16,14 +16,12 @@ Check out the `test_videos` directory for sample videos.
 
 ```
 python3 run_ocr_demo.py --video_file ./test_videos/amex.mp4
-
 ```
 #### To run the demo on the frames from you webcam, use the following
 Place your card infront of the webcam.
 
 ```
 python3 run_ocr_demo.py
-
 ```
 
 ## For more information on the project
