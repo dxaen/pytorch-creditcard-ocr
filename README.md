@@ -19,9 +19,10 @@ python3 run_ocr_demo.py --video_file ./test_videos/amex.mp4
 ```
 ##### Samples
 American Express
-<img src='./assets/amex.png' width='700'/>
+<img src='./assets/amex.png' width='600'/>
+
 Quick Read
-<img src='./assets/quick_read.png' width='700'/>
+<img src='./assets/quick_read.png' width='600'/>
 
 #### To run the demo on the frames from your webcam, use the following
 Place your card infront of the webcam.
