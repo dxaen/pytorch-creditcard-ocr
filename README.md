@@ -36,6 +36,11 @@ American Express
 
 [Watch Scanning Amex Card](assets/amex.mp4)
 
+<video width="600" controls>
+  <source src="./assets/amex.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 VISA Gift Card
 
 [Watch Scanning VISA Gift Card](assets/visa.mp4)
