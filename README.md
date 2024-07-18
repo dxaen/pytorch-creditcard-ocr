@@ -34,16 +34,12 @@ python3 run_ocr_demo.py
 ```
 American Express
 
-[Watch Scanning Amex Card](assets/amex.mp4)
-
-<video width="600" controls>
-  <source src="./assets/amex.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[![Scan Amex Card](https://img.youtube.com/vi/nF5bj874C9I/0.jpg)](https://www.youtube.com/watch?v=nF5bj874C9I)
 
 VISA Gift Card
 
-[Watch Scanning VISA Gift Card](assets/visa.mp4)
+[![Scan VISA Card](https://img.youtube.com/vi/wb9aOxiYeLo/0.jpg)](https://www.youtube.com/watch?v=wb9aOxiYeLo)
+
 
 ## For more information on the project
 Read the full paper [Doing good by fighting fraud: Ethical anti-fraud
