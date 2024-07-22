@@ -1,17 +1,22 @@
-import sys
-import cv2
 import argparse
-from ocr import card_has_number
 import logging
+import sys
+
+import cv2
+
 from create_ocr import create_mobilenetv2_ocr, create_mobilenetv2_ocr_predictor
+from ocr import card_has_number
+
 
 def parse_args():
     parser = argparse.ArgumentParser(description='OCR demo video capture')
-    parser.add_argument('--model_path', default = './checkpoint/mb2-e3-vloss-5-98.pth')
-    parser.add_argument('--label_path', default= './checkpoint/ocr_labels.txt')
-    parser.add_argument('--video_file', default = None)
-    parser.add_argument('--save_final_frame', default = './final_frame.png')
+    parser.add_argument(
+        '--model_path', default='./checkpoint/mb2-e3-vloss-5-98.pth')
+    parser.add_argument('--label_path', default='./checkpoint/ocr_labels.txt')
+    parser.add_argument('--video_file', default=None)
+    parser.add_argument('--save_final_frame', default='./final_frame.png')
     return parser.parse_args()
+
 
 def run_demo(args):
     if args.video_file:
@@ -22,10 +27,10 @@ def run_demo(args):
         cap.set(4, 1080)
 
     class_names = [name.strip() for name in open(args.label_path).readlines()]
-    net = create_mobilenetv2_ocr(len(class_names),width_mult=0.5, is_test=True)
+    net = create_mobilenetv2_ocr(
+        len(class_names), width_mult=0.5, is_test=True)
     net.load(args.model_path)
     predictor = create_mobilenetv2_ocr_predictor(net, candidate_size=200)
-
     while True:
         ret, orig_image = cap.read()
         if orig_image is None:
@@ -35,8 +40,8 @@ def run_demo(args):
         for i in range(boxes.size(0)):
             box = boxes[i, :]
             label = f"{class_names[labels[i]]}: {probs[i]:.2f}"
-            cv2.rectangle(orig_image, (int(box[0]), int(box[1])), 
-                    (int(box[2]), int(box[3])), (255, 255, 0), 4)
+            cv2.rectangle(orig_image, (int(box[0]), int(box[1])),
+                          (int(box[2]), int(box[3])), (255, 255, 0), 4)
 
             cv2.putText(orig_image, label,
                         (int(box[0])+20, int(box[1])+40),
@@ -44,15 +49,22 @@ def run_demo(args):
                         1,  # font scale
                         (255, 0, 255),
                         2)  # line type
-            
+
         cv2.imshow('annotated', orig_image)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
-        condition, number = card_has_number(boxes.numpy(), labels.numpy(), probs.numpy())
+        condition, number = card_has_number(
+            boxes.numpy(), labels.numpy(), probs.numpy())
         if condition:
             logging.info(f"Number is :{number}")
+            cv2.putText(orig_image, f"Number is: {number}",
+                        (100, 100),
+                        cv2.FONT_HERSHEY_SIMPLEX,
+                        1,  # font scale
+                        (255, 0, 255),
+                        2)  # line type
             cv2.imwrite(args.save_final_frame, orig_image)
-            break 
+            break
         else:
             logging.debug(f"Partial Number {number}")
     cap.release()

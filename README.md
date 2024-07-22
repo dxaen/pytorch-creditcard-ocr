@@ -17,12 +17,29 @@ Check out the `test_videos` directory for sample videos.
 ```
 python3 run_ocr_demo.py --video_file ./test_videos/amex.mp4
 ```
+##### Samples
+American Express
+
+<img src='./assets/amex.png' width='600'/>
+
+Quick Read
+
+<img src='./assets/quick_read.png' width='600'/>
+
 #### To run the demo on the frames from your webcam, use the following
 Place your card infront of the webcam.
 
 ```
 python3 run_ocr_demo.py
 ```
+American Express
+
+[![Scan Amex Card](https://img.youtube.com/vi/nF5bj874C9I/0.jpg)](https://www.youtube.com/watch?v=nF5bj874C9I)
+
+VISA Gift Card
+
+[![Scan VISA Card](https://img.youtube.com/vi/wb9aOxiYeLo/0.jpg)](https://www.youtube.com/watch?v=wb9aOxiYeLo)
+
 
 ## For more information on the project
 Read the full paper [Doing good by fighting fraud: Ethical anti-fraud
